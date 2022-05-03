@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="styles.css">
+
+  <title> E-commerce product page</title>
+
+</head>
+
+<body>
+  <div id="body">
+    <div class="header">
+      <div class="navbar">
+        <img id="logo" src="./images/logo.svg" alt="sneakers">
+        <a href="">Collections</a>
+        <a href="">Men</a>
+        <a href="">Women</a>
+        <a href="">About</a>
+        <a href="">Contact</a>
+        <input onmouseover="modal()" type="image" id="cart" src="./images/icon-cart.svg" alt="">
+
+      </div>
+      <div id="header-img">
+        <input id="avatar" type="image" src="./images/image-avatar.png" alt="">
+      </div>
+      <div id="modal">
+        <div class="modal-header">
+          <h3>Cart</h3>
+        </div>
+        <p id="p">your cart is empty</p>
+        <div id="content">
+          <input type="image" src="./images/image-product-1.jpg" alt="">
+          <img id="delete" src="./images/icon-delete.svg" alt="">
+          <h4>Fall Limited Edition Sneakers</h4>
+          <h5 id="h5" >$125.00 x 1</h5>
+          <h6 id="h6">125</h6>
+          <button onclick="location.reload()">checkout</button>
+        </div>
+      </div>
+    </div>
+    <div class="img-box">
+      <img onclick="zoom()" id="main-img" src="./images/image-product-1.jpg" alt="">
+      <div class="thumbnail">
+        <input onclick="change1()" type="image" src="./images/image-product-1-thumbnail.jpg" alt="">
+        <input onclick="change2()" type="image" src="./images/image-product-2-thumbnail.jpg" alt="">
+        <input onclick="change3()" type="image" src="./images/image-product-3-thumbnail.jpg" alt="">
+        <input onclick="change4()" type="image" src="./images/image-product-4-thumbnail.jpg" alt="">
+      </div>
+    </div>
+    <div class="content">
+      <h3>sneaker company</h3>
+      <h1> Fall Limited Edition Sneakers</h1>
+      <p> These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+      <div class="price">
+        <h2>$125.00</h2>
+        <label>50%</label>
+      </div>
+      <h4>$250.00</h4>
+      <input id="num" value="0" type="text">
+      <button onclick="contentShow()" id="add">
+        Add to cart</button>
+    </div>
+  </div>
+  <div id="zoom-img">
+    <input onclick="location.reload()" type="image" id="close" src="" alt="x">
+    <button id="previous"><img src="./images/icon-previous.svg" alt=""></button>
+    <button id="next"><img src="./images/icon-next.svg" alt=""></button>
+    <div class="main">
+      <img id="main-img-2" src="./images/image-product-1.jpg" alt="">
+    </div>
+    <div class="thumbnail">
+      <input onclick="change5()" type="image" src="./images/image-product-1-thumbnail.jpg" alt="">
+      <input onclick="change6()" type="image" src="./images/image-product-2-thumbnail.jpg" alt="">
+      <input onclick="change7()" type="image" src="./images/image-product-3-thumbnail.jpg" alt="">
+      <input onclick="change8()" type="image" src="./images/image-product-4-thumbnail.jpg" alt="">
+    </div>
+  </div>
+</body>
+<script>
+  var cart = document.getElementById("cart")
+  cart.addEventListener("mouseout", modalout)
+  cart.addEventListener("click", modalstay)
+  function modal() {
+    var modal = document.getElementById("modal")
+    modal.style.display = "block"
+
+  }
+  function modalstay() {
+    cart.removeEventListener("mouseout", modalout)
+  }
+  function modalout() {
+    var modal = document.getElementById("modal")
+    modal.style.display = "none"
+  }
+  function change1() {
+    var img = document.getElementById("main-img")
+    img.src = "./images/image-product-1.jpg"
+  }
+  function change2() {
+    var img = document.getElementById("main-img")
+    img.src = "./images/image-product-2.jpg"
+  }
+  function change3() {
+    var img = document.getElementById("main-img")
+    img.src = "./images/image-product-3.jpg"
+  }
+  function change4() {
+    var img = document.getElementById("main-img")
+    img.src = "./images/image-product-4.jpg"
+  }
+  function change5() {
+    var img = document.getElementById("main-img-2")
+    img.src = "./images/image-product-1.jpg"
+  }
+  function change6() {
+    var img = document.getElementById("main-img-2")
+    img.src = "./images/image-product-2.jpg"
+  }
+  function change7() {
+    var img = document.getElementById("main-img-2")
+    img.src = "./images/image-product-3.jpg"
+  }
+  function change8() {
+    var img = document.getElementById("main-img-2")
+    img.src = "./images/image-product-4.jpg"
+  }
+  function contentShow() {
+    document.getElementById("content").style.display = "block"
+    document.getElementById("p").style.display = "none"
+    var num = document.getElementById("num")
+    document.getElementById("h5").innerHTML = "$ 125.00" + " x " + num.value
+    document.getElementById("h6").innerHTML = num.value * 125
+
+  }
+  function zoom() {
+    var zoomimg = document.getElementById("zoom-img")
+    zoomimg.style.display = "block"
+    var body = document.getElementById("body")
+    body.style.opacity = "0.4"
+    document.body.style.backgroundColor = "rgba(0,0,0,0.5)"
+  }
+
+</script>
+
+</html>
